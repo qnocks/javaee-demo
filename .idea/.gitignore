@@ -7,5 +7,9 @@
 # Editor-based HTTP Client requests
 /httpRequests/
 
-# Classes 
+# Steal this instructions from Eugene Suleimanov
+.idea/*
 *.class
+*.war
+*.jar
+*.ear
