@@ -20,7 +20,7 @@ public class DoctorsServlet extends HttpServlet {
     @Override
     public void init(ServletConfig config) throws ServletException {
         this.doctorsRepository = new DoctorsRepositoryAVLTreeImpl();
-        config.getServletContext().setAttribute("repos", this.doctorsRepository);
+        config.getServletContext().setAttribute("doctorsRepos", this.doctorsRepository);
     }
 
 //    @Override

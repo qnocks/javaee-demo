@@ -19,7 +19,7 @@ public class CreateDoctorServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html");
-        doctorsRepository = (DoctorsRepository) req.getServletContext().getAttribute("repos");
+        doctorsRepository = (DoctorsRepository) req.getServletContext().getAttribute("doctorsRepos");
         RequestDispatcher dispatcher = req.getServletContext().getRequestDispatcher("/jsp/doctors/create.jsp");
         dispatcher.forward(req, resp);
     }

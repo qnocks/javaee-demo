@@ -29,5 +29,6 @@
         </c:forEach>>
         <a href="${pageContext.servletContext.contextPath}/create"></a>
     </table>
+    <a href="${pageContext.request.contextPath}/doctors/create">Add new doctor</a>
 </body>
 </html>

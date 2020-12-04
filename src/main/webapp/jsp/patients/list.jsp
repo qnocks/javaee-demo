@@ -30,5 +30,6 @@
             </tr>
         </c:forEach>>
     </table>
+    <a href="${pageContext.request.contextPath}/patients/create">Add new patient</a>
 </body>
 </html>

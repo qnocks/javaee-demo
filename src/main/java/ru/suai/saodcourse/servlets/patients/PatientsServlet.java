@@ -20,7 +20,7 @@ public class PatientsServlet extends HttpServlet {
     @Override
     public void init(ServletConfig config) throws ServletException {
         this.patientRepository = new PatientsRepositoryHashTableImpl();
-        config.getServletContext().setAttribute("repos", patientRepository);
+        config.getServletContext().setAttribute("patientsRepos", patientRepository);
     }
 
     @Override

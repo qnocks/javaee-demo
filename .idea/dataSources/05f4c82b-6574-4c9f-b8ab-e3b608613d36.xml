@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="Microsoft SQL Server (jTds) - hospital_system">
+  <database-model serializer="dbm" dbms="MSSQL" family-id="MSSQL" format-version="4.19">
+    <root id="1">
+      <ServerVersion>13.0.4001</ServerVersion>
+    </root>
+    <database id="2" parent="1" name="STUDENTPERFORMANCE_d8c6a770599842248a117c98a66f6ab2">
+      <ObjectId>6</ObjectId>
+    </database>
+    <database id="3" parent="1" name="hospital_system">
+      <ObjectId>7</ObjectId>
+      <Current>1</Current>
+      <Collation>SQL_Latin1_General_CP1_CI_AS</Collation>
+      <Fingerprint>7.44167/3A7320F8-9156-4789-921E-4B0770CEE411@QNOCKS\LOCALDB#B79E5AA3</Fingerprint>
+    </database>
+    <database id="4" parent="1" name="master">
+      <ObjectId>1</ObjectId>
+      <Collation>SQL_Latin1_General_CP1_CI_AS</Collation>
+    </database>
+    <database id="5" parent="1" name="model">
+      <ObjectId>3</ObjectId>
+      <Collation>SQL_Latin1_General_CP1_CI_AS</Collation>
+    </database>
+    <database id="6" parent="1" name="msdb">
+      <ObjectId>4</ObjectId>
+      <Collation>SQL_Latin1_General_CP1_CI_AS</Collation>
+    </database>
+    <database id="7" parent="1" name="students_db_mssql">
+      <ObjectId>5</ObjectId>
+      <Collation>SQL_Latin1_General_CP1_CI_AS</Collation>
+    </database>
+    <database id="8" parent="1" name="tempdb">
+      <ObjectId>2</ObjectId>
+      <Collation>SQL_Latin1_General_CP1_CI_AS</Collation>
+    </database>
+    <schema id="9" parent="3" name="INFORMATION_SCHEMA">
+      <ObjectId>3</ObjectId>
+    </schema>
+    <schema id="10" parent="3" name="db_accessadmin">
+      <ObjectId>16385</ObjectId>
+    </schema>
+    <schema id="11" parent="3" name="db_backupoperator">
+      <ObjectId>16389</ObjectId>
+    </schema>
+    <schema id="12" parent="3" name="db_datareader">
+      <ObjectId>16390</ObjectId>
+    </schema>
+    <schema id="13" parent="3" name="db_datawriter">
+      <ObjectId>16391</ObjectId>
+    </schema>
+    <schema id="14" parent="3" name="db_ddladmin">
+      <ObjectId>16387</ObjectId>
+    </schema>
+    <schema id="15" parent="3" name="db_denydatareader">
+      <ObjectId>16392</ObjectId>
+    </schema>
+    <schema id="16" parent="3" name="db_denydatawriter">
+      <ObjectId>16393</ObjectId>
+    </schema>
+    <schema id="17" parent="3" name="db_owner">
+      <ObjectId>16384</ObjectId>
+    </schema>
+    <schema id="18" parent="3" name="db_securityadmin">
+      <ObjectId>16386</ObjectId>
+    </schema>
+    <schema id="19" parent="3" name="dbo">
+      <ObjectId>1</ObjectId>
+      <IntrospectionTimestamp>2020-12-04.00:06:56.780</IntrospectionTimestamp>
+      <Current>1</Current>
+    </schema>
+    <schema id="20" parent="3" name="guest">
+      <ObjectId>2</ObjectId>
+    </schema>
+    <schema id="21" parent="3" name="sys">
+      <ObjectId>4</ObjectId>
+    </schema>
+    <table id="22" parent="19" name="Doctors">
+      <ObjectId>565577053</ObjectId>
+      <CreatedTimestamp>2020-12-03.22:45:40.820</CreatedTimestamp>
+      <ModifiedTimestamp>2020-12-03.22:48:32.150</ModifiedTimestamp>
+    </table>
+    <table id="23" parent="19" name="Patients">
+      <ObjectId>597577167</ObjectId>
+      <CreatedTimestamp>2020-12-03.23:56:25.503</CreatedTimestamp>
+      <ModifiedTimestamp>2020-12-03.23:56:25.513</ModifiedTimestamp>
+    </table>
+    <table id="24" parent="19" name="Referrals">
+      <ObjectId>629577281</ObjectId>
+      <CreatedTimestamp>2020-12-04.00:06:56.010</CreatedTimestamp>
+      <ModifiedTimestamp>2020-12-04.00:06:56.117</ModifiedTimestamp>
+    </table>
+    <column id="25" parent="22" name="doctor_id">
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="26" parent="22" name="full_name">
+      <Position>2</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="27" parent="22" name="specialty">
+      <Position>3</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="28" parent="22" name="office_number">
+      <Position>4</Position>
+      <DataType>int|0s</DataType>
+    </column>
+    <column id="29" parent="22" name="schedule">
+      <Position>5</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <index id="30" parent="22" name="doctors_doctor_id_uindex">
+      <Position>2</Position>
+      <ColNames>doctor_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="31" parent="22" name="doctors_pk">
+      <Position>3</Position>
+      <ColNames>doctor_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="32" parent="22" name="doctors_pk">
+      <ObjectId>581577110</ObjectId>
+      <CreatedTimestamp>2020-12-03.22:45:40.920</CreatedTimestamp>
+      <ModifiedTimestamp>2020-12-03.22:45:40.920</ModifiedTimestamp>
+      <ColNames>doctor_id</ColNames>
+      <UnderlyingIndexName>doctors_pk</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="33" parent="23" name="patient_id">
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="34" parent="23" name="registration_number">
+      <Position>2</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="35" parent="23" name="full_name">
+      <Position>3</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="36" parent="23" name="birth_date">
+      <Position>4</Position>
+      <DataType>datetime|0s</DataType>
+    </column>
+    <column id="37" parent="23" name="address">
+      <Position>5</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="38" parent="23" name="job">
+      <Position>6</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <index id="39" parent="23" name="Patients_patient_id_uindex">
+      <Position>2</Position>
+      <ColNames>patient_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="40" parent="23" name="Patients_pk">
+      <Position>3</Position>
+      <ColNames>patient_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="41" parent="23" name="Patients_pk">
+      <ObjectId>613577224</ObjectId>
+      <CreatedTimestamp>2020-12-03.23:56:25.510</CreatedTimestamp>
+      <ModifiedTimestamp>2020-12-03.23:56:25.510</ModifiedTimestamp>
+      <ColNames>patient_id</ColNames>
+      <UnderlyingIndexName>Patients_pk</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="42" parent="24" name="referral_id">
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="43" parent="24" name="patient_registration_number">
+      <Position>2</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="44" parent="24" name="doctor_full_name">
+      <Position>3</Position>
+      <DataType>int|0s</DataType>
+    </column>
+    <column id="45" parent="24" name="referral_datetime">
+      <Position>4</Position>
+      <DataType>datetime|0s</DataType>
+    </column>
+    <index id="46" parent="24" name="Referrals_referral_id_uindex">
+      <Position>2</Position>
+      <ColNames>referral_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="47" parent="24" name="Referrals_pk">
+      <Position>3</Position>
+      <ColNames>referral_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="48" parent="24" name="Referrals_pk">
+      <ObjectId>645577338</ObjectId>
+      <CreatedTimestamp>2020-12-04.00:06:56.113</CreatedTimestamp>
+      <ModifiedTimestamp>2020-12-04.00:06:56.113</ModifiedTimestamp>
+      <ColNames>referral_id</ColNames>
+      <UnderlyingIndexName>Referrals_pk</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>
