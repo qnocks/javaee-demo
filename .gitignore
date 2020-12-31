@@ -1,0 +1,6 @@
+# Igrore class file
+*.class
+
+# Ingore these directories
+/.idea
+/target
