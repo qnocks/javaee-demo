@@ -25,6 +25,7 @@ public class HomeServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html");
         req.setAttribute("patients", patientRepository.findAll());
+
         RequestDispatcher dispatcher = req.getServletContext().getRequestDispatcher("/jsp/home/home.jsp");
         dispatcher.forward(req, resp);
     }

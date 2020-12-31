@@ -20,13 +20,13 @@ public class PatientsServlet extends HttpServlet {
     @Override
     public void init(ServletConfig config) throws ServletException {
         this.patientRepository = new PatientsRepositoryHashTableImpl();
-        config.getServletContext().setAttribute("patientsRepos", patientRepository);
+        config.getServletContext().setAttribute("patientsRepos", this.patientRepository);
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html");
-        req.setAttribute("patients", patientRepository.findAll());
+        req.setAttribute("patients", this.patientRepository.findAll());
         RequestDispatcher dispatcher = req.getServletContext().getRequestDispatcher("/jsp/patients/list.jsp");
         dispatcher.forward(req, resp);
     }

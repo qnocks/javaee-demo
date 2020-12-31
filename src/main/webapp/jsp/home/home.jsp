@@ -12,9 +12,10 @@
     <title>Title</title>
 </head>
 <body>
-    <h1>Welcome to site from JSP!</h1>
+    <h1>Welcome to webapp from JSP!</h1>
     <a href="${pageContext.servletContext.contextPath}/doctors">Check the doctors list</a>
     <a href="${pageContext.servletContext.contextPath}/patients">Check the patients list</a>
+    <a href="${pageContext.servletContext.contextPath}/referrals">Check the referrals list</a>
 
 </body>
 </html>
