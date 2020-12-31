@@ -22,6 +22,7 @@ public class CreatePatientsServlet extends HttpServlet {
         resp.setContentType("text/html");
         patientRepository = (PatientRepository) req.getServletContext().getAttribute("patientsRepos");
         RequestDispatcher dispatcher = req.getServletContext().getRequestDispatcher("/jsp/patients/create.jsp");
+        req.getRequestDispatcher("/doctors/create");
         dispatcher.forward(req, resp);
     }
 

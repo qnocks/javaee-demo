@@ -14,11 +14,11 @@ public class PatientsRepositoryHashTableImpl implements PatientRepository {
     Map<String, Patient> patients = new HashMap<>();
 
     {
-        var patient = new Patient("55-882561", "Marsel Sidikov",
+        var patient = new Patient("55-882561", "Ivan Sidikov",
                 LocalDate.parse("1992-02-02"), "Kazan", "Professor");
         var patient2 = new Patient("74-522575", "Andrew Petrov",
                 LocalDate.parse("2001-12-19"), "Spb", "Student");
-        var patient3 = new Patient("42-962312", "Maria Toporisheva",
+        var patient3 = new Patient("42-962312", "Maria Gladkova",
                 LocalDate.parse("1992-02-02"), "Turkmen", "Schoolgirl");
 
         patients.put(patient.getRegistrationNumber(), patient);

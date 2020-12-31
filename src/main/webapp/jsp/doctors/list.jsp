@@ -26,7 +26,7 @@
                 <td>${doctor.officeNumber}</td>
                 <td>${doctor.schedule}</td>
             </tr>
-        </c:forEach>>
+        </c:forEach>
         <a href="${pageContext.servletContext.contextPath}/create"></a>
     </table>
     <a href="${pageContext.request.contextPath}/doctors/create">Add new doctor</a>

@@ -12,6 +12,7 @@
     <title>Title</title>
 </head>
 <body>
+
     <table>
         <tr>
             <th>RegistrationNumber</th>
@@ -28,7 +29,7 @@
                 <td>${patient.address}</td>
                 <td>${patient.job}</td>
             </tr>
-        </c:forEach>>
+        </c:forEach>
     </table>
     <a href="${pageContext.request.contextPath}/patients/create">Add new patient</a>
 </body>
