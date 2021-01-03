@@ -1,12 +1,17 @@
 package ru.suai.saodcourse.models;
 
 public class Doctor {
+
+    private static long autoIncrement = 0L;
+
+    private Long id;
     private String fullName;
     private String specialty;
     private Integer officeNumber;
     private String schedule;
 
     public Doctor(String fullName, String specialty, Integer officeNumber, String schedule) {
+        this.id = ++autoIncrement;
         this.fullName = fullName;
         this.specialty = specialty;
         this.officeNumber = officeNumber;
@@ -43,5 +48,13 @@ public class Doctor {
 
     public void setSchedule(String schedule) {
         this.schedule = schedule;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

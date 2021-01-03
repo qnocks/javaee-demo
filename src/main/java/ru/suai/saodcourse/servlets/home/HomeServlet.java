@@ -14,19 +14,9 @@ import java.io.IOException;
 @WebServlet("/")
 public class HomeServlet extends HttpServlet {
 
-    private PatientRepository patientRepository;
-
-    @Override
-    public void init() throws ServletException {
-        this.patientRepository = new PatientsRepositoryHashTableImpl();
-    }
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html");
-        req.setAttribute("patients", patientRepository.findAll());
-
-        RequestDispatcher dispatcher = req.getServletContext().getRequestDispatcher("/jsp/home/home.jsp");
-        dispatcher.forward(req, resp);
+        req.getServletContext().getRequestDispatcher("/jsp/home/home.jsp").forward(req, resp);
     }
 }

@@ -10,4 +10,6 @@ public interface DoctorsRepository {
 
     List<Doctor> findAll();
     void save(Doctor doctor);
+    boolean delete(Long id);
+    Doctor findById(Long id);
 }

@@ -15,19 +15,25 @@
 
     <table>
         <tr>
+            <th>Id</th>
             <th>RegistrationNumber</th>
             <th>FullName</th>
             <th>BirthDate</th>
             <th>Address</th>
             <th>Job</th>
+            <th></th>
+            <th></th>
         </tr>
         <c:forEach items="${patients}" var="patient">
             <tr>
+                <td>${patient.id}</td>
                 <td>${patient.registrationNumber}</td>
                 <td>${patient.fullName}</td>
                 <td>${patient.birthDate}</td>
                 <td>${patient.address}</td>
                 <td>${patient.job}</td>
+                <td><a href="${pageContext.servletContext.contextPath}/${patient.id}/update">Edit</a></td>
+                <td><a href="${pageContext.servletContext.contextPath}/${patient.id}/delete">Delete</a></td>
             </tr>
         </c:forEach>
     </table>

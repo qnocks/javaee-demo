@@ -17,18 +17,11 @@ public class DoctorsServlet extends HttpServlet {
 
     DoctorsRepository doctorsRepository;
 
-
-
     @Override
     public void init(ServletConfig config) throws ServletException {
         this.doctorsRepository = new DoctorsRepositoryAVLTreeImpl();
         config.getServletContext().setAttribute("doctorsRepos", this.doctorsRepository);
     }
-
-//    @Override
-//    public void init() throws ServletException {
-//        this.doctorsRepository = new DoctorsRepositoryAVLTreeImpl();
-//    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

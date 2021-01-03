@@ -3,6 +3,10 @@ package ru.suai.saodcourse.models;
 import java.time.LocalDate;
 
 public class Patient {
+
+    private static long autoIncrement= 0L;
+
+    private Long id;
     private String registrationNumber;
     private String fullName;
     private LocalDate birthDate;
@@ -12,8 +16,9 @@ public class Patient {
     public Patient() {}
 
     public Patient(String registrationNumber, String fullName, LocalDate birthDate, String address, String job) {
-        this.fullName = fullName;
+        this.id = ++autoIncrement;
         this.registrationNumber = registrationNumber;
+        this.fullName = fullName;
         this.birthDate = birthDate;
         this.address = address;
         this.job = job;
@@ -57,5 +62,13 @@ public class Patient {
 
     public void setJob(String job) {
         this.job = job;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

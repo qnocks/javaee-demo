@@ -4,6 +4,7 @@ import ru.suai.saodcourse.models.Doctor;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.TreeMap;
 
 public class DoctorsRepositoryAVLTreeImpl implements DoctorsRepository {
@@ -29,4 +30,22 @@ public class DoctorsRepositoryAVLTreeImpl implements DoctorsRepository {
     public void save(Doctor doctor) {
         doctors.put(doctor.getFullName(), doctor);
     }
+
+    @Override
+    public boolean delete(Long id) {
+        Doctor doctor = findById(id);
+        if (doctor == null) return false;
+        doctors.remove(doctor.getFullName(), doctor);
+        return true;
+    }
+
+    public Doctor findById(Long id) {
+        for(Map.Entry<String, Doctor> doctorEntry : doctors.entrySet()) {
+            if (doctorEntry.getValue().getId().equals(id)) {
+                return doctorEntry.getValue();
+            }
+        }
+        return null;
+    }
+
 }

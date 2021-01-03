@@ -14,17 +14,23 @@
 <body>
     <table>
         <tr>
+            <th>Id</th>
             <th>FullName</th>
             <th>Specialty</th>
             <th>OfficeNumber</th>
             <th>Schedule</th>
+            <th></th>
+            <th></th>
         </tr>
         <c:forEach items="${doctors}" var="doctor">
             <tr>
+                <td>${doctor.id}</td>
                 <td>${doctor.fullName}</td>
                 <td>${doctor.specialty}</td>
                 <td>${doctor.officeNumber}</td>
                 <td>${doctor.schedule}</td>
+                <td><a href="${pageContext.servletContext.contextPath}/doctors/update/${doctor.id}">Edit</a></td>
+                <td><a href="${pageContext.servletContext.contextPath}/doctors/delete/${doctor.id}">Delete</a></td>
             </tr>
         </c:forEach>
         <a href="${pageContext.servletContext.contextPath}/create"></a>
