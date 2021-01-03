@@ -1,7 +1,7 @@
 package ru.suai.saodcourse.servlets.patients;
 
 import ru.suai.saodcourse.models.Patient;
-import ru.suai.saodcourse.repositories.PatientRepository;
+import ru.suai.saodcourse.repositories.PatientsRepository;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,14 +13,14 @@ import java.io.IOException;
 import java.time.LocalDate;
 
 @WebServlet("/patients/create")
-public class CreatePatientsServlet extends HttpServlet {
+public class CreatePatientServlet extends HttpServlet {
 
-    PatientRepository patientRepository;
+    PatientsRepository patientsRepository;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html");
-        patientRepository = (PatientRepository) req.getServletContext().getAttribute("patientsRepos");
+        patientsRepository = (PatientsRepository) req.getServletContext().getAttribute("patientsRepos");
         RequestDispatcher dispatcher = req.getServletContext().getRequestDispatcher("/jsp/patients/create.jsp");
         req.getRequestDispatcher("/doctors/create");
         dispatcher.forward(req, resp);
@@ -34,8 +34,8 @@ public class CreatePatientsServlet extends HttpServlet {
         String address = req.getParameter("address");
         String job = req.getParameter("job");
         Patient patient = new Patient(registrationNumber,fullName, birthDate, address, job);
-        patientRepository.save(patient);
-        req.setAttribute("patients", patientRepository.findAll());
+        patientsRepository.save(patient);
+        req.setAttribute("patients", patientsRepository.findAll());
         RequestDispatcher dispatcher = req.getServletContext().getRequestDispatcher("/jsp/patients/list.jsp");
         dispatcher.forward(req, resp);
     }

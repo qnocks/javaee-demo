@@ -17,11 +17,15 @@ import java.time.LocalDate;
 
 public class Referral {
 
+    private static long autoIncrement= 0L;
+
+    private Long id;
     private String patientRegistrationNumber;
     private String doctorFullName;
     private LocalDate referralDate;
 
     public Referral(String patientRegistrationNumber, String doctorFullName, LocalDate referralDate) {
+        this.id = ++autoIncrement;
         this.patientRegistrationNumber = patientRegistrationNumber;
         this.doctorFullName = doctorFullName;
         this.referralDate = referralDate;
@@ -49,5 +53,13 @@ public class Referral {
 
     public LocalDate getReferralDate() {
         return referralDate;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

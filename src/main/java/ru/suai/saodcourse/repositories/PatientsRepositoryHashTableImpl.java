@@ -9,7 +9,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-public class PatientsRepositoryHashTableImpl implements PatientRepository {
+public class PatientsRepositoryHashTableImpl implements PatientsRepository {
 
     Map<String, Patient> patients = new HashMap<>();
 
@@ -34,5 +34,23 @@ public class PatientsRepositoryHashTableImpl implements PatientRepository {
     @Override
     public void save(Patient patient) {
         patients.put(patient.getRegistrationNumber(), patient);
+    }
+
+    @Override
+    public boolean delete(Long id) {
+        Patient patient = findById(id);
+        if (patient == null) return false;
+        patients.remove(patient.getRegistrationNumber(), patient);
+        return true;
+    }
+
+    @Override
+    public Patient findById(Long id) {
+        for(Map.Entry<String, Patient> patientEntry : patients.entrySet()) {
+            if (patientEntry.getValue().getId().equals(id)) {
+                return patientEntry.getValue();
+            }
+        }
+        return null;
     }
 }

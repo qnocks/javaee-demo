@@ -1,5 +1,6 @@
 package ru.suai.saodcourse.repositories;
 
+import ru.suai.saodcourse.models.Patient;
 import ru.suai.saodcourse.models.Referral;
 
 import java.time.LocalDate;
@@ -24,5 +25,23 @@ public class ReferralsRepositorySkipListImpl implements ReferralsRepository {
     @Override
     public void save(Referral referral) {
         referrals.add(referral);
+    }
+
+    @Override
+    public boolean delete(Long id) {
+        Referral referral = findById(id);
+        if (referral == null) return false;
+        referrals.remove(referral);
+        return true;
+    }
+
+    @Override
+    public Referral findById(Long id) {
+        for(var referral : referrals) {
+            if (referral.getId().equals(id)) {
+                return referral;
+            }
+        }
+        return null;
     }
 }

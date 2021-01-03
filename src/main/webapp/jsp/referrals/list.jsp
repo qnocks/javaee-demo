@@ -12,17 +12,22 @@
     <title>Title</title>
 </head>
 <body>
+    <a href="${pageContext.request.contextPath}/">Home</a>
     <table>
         <tr>
             <th>Patient registration Number</th>
             <th>Doctor FullName</th>
             <th>ReferralDate</th>
+            <th></th>
+            <th></th>
         </tr>
         <c:forEach items="${referrals}" var="referral">
             <tr>
                 <td>${referral.patientRegistrationNumber}</td>
                 <td>${referral.doctorFullName}</td>
                 <td>${referral.referralDate}</td>
+                <td><a href="${pageContext.request.contextPath}/referrals/update/${referral.id}">Edit</a></td>
+                <td><a href="${pageContext.request.contextPath}/referrals/delete/${referral.id}">Delete</a></td>
             </tr>
         </c:forEach>
     </table>

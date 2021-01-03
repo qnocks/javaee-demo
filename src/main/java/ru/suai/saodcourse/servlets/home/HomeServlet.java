@@ -1,9 +1,5 @@
 package ru.suai.saodcourse.servlets.home;
 
-import ru.suai.saodcourse.repositories.PatientRepository;
-import ru.suai.saodcourse.repositories.PatientsRepositoryHashTableImpl;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

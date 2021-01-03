@@ -1,6 +1,6 @@
 package ru.suai.saodcourse.servlets.patients;
 
-import ru.suai.saodcourse.repositories.PatientRepository;
+import ru.suai.saodcourse.repositories.PatientsRepository;
 import ru.suai.saodcourse.repositories.PatientsRepositoryHashTableImpl;
 
 import javax.servlet.RequestDispatcher;
@@ -15,18 +15,18 @@ import java.io.IOException;
 @WebServlet("/patients")
 public class PatientsServlet extends HttpServlet {
 
-    PatientRepository patientRepository;
+    PatientsRepository patientsRepository;
 
     @Override
     public void init(ServletConfig config) throws ServletException {
-        this.patientRepository = new PatientsRepositoryHashTableImpl();
-        config.getServletContext().setAttribute("patientsRepos", this.patientRepository);
+        this.patientsRepository = new PatientsRepositoryHashTableImpl();
+        config.getServletContext().setAttribute("patientsRepos", this.patientsRepository);
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html");
-        req.setAttribute("patients", this.patientRepository.findAll());
+        req.setAttribute("patients", this.patientsRepository.findAll());
         RequestDispatcher dispatcher = req.getServletContext().getRequestDispatcher("/jsp/patients/list.jsp");
         dispatcher.forward(req, resp);
     }

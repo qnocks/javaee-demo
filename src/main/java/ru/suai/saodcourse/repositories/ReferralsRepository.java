@@ -7,4 +7,6 @@ import java.util.List;
 public interface ReferralsRepository {
     List<Referral> findAll();
     void save(Referral referral);
- }
+    boolean delete(Long id);
+    Referral findById(Long id);
+}

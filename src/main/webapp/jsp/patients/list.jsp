@@ -12,7 +12,7 @@
     <title>Title</title>
 </head>
 <body>
-
+    <a href="${pageContext.request.contextPath}/">Home</a>
     <table>
         <tr>
             <th>Id</th>
@@ -32,8 +32,8 @@
                 <td>${patient.birthDate}</td>
                 <td>${patient.address}</td>
                 <td>${patient.job}</td>
-                <td><a href="${pageContext.servletContext.contextPath}/${patient.id}/update">Edit</a></td>
-                <td><a href="${pageContext.servletContext.contextPath}/${patient.id}/delete">Delete</a></td>
+                <td><a href="${pageContext.servletContext.contextPath}/patients/update/${patient.id}">Edit</a></td>
+                <td><a href="${pageContext.servletContext.contextPath}/patients/delete/${patient.id}">Delete</a></td>
             </tr>
         </c:forEach>
     </table>
