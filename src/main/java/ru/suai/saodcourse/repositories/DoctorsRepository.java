@@ -12,4 +12,5 @@ public interface DoctorsRepository {
     void save(Doctor doctor);
     boolean delete(Long id);
     Doctor findById(Long id);
+    Doctor findByFullName(String fullName);
 }

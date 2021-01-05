@@ -1,6 +1,5 @@
 package ru.suai.saodcourse.servlets.patients;
 
-import ru.suai.saodcourse.models.Doctor;
 import ru.suai.saodcourse.models.Patient;
 import ru.suai.saodcourse.repositories.PatientsRepository;
 
@@ -20,14 +19,7 @@ public class UpdatePatientServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         this.patientsRepository = (PatientsRepository) req.getServletContext().getAttribute("patientsRepos");
         resp.setContentType("text/html");
-        long id = getId(req);
-        Patient patient = patientsRepository.findById(id);
-        req.setAttribute("id", patient.getId());
-        req.setAttribute("registrationNumber", patient.getRegistrationNumber());
-        req.setAttribute("fullName", patient.getFullName());
-        req.setAttribute("birthDate", patient.getBirthDate());
-        req.setAttribute("address", patient.getAddress());
-        req.setAttribute("job", patient.getJob());
+        req.setAttribute("patient", patientsRepository.findById(getId(req)));
         req.getRequestDispatcher("/jsp/patients/update.jsp").forward(req, resp);
     }
 
@@ -45,7 +37,6 @@ public class UpdatePatientServlet extends HttpServlet {
 
     private long getId(HttpServletRequest req) {
         String url = req.getRequestURL().toString();
-        long id = Long.parseLong(url.substring(url.lastIndexOf('/') + 1));
-        return id;
+        return Long.parseLong(url.substring(url.lastIndexOf('/') + 1));
     }
 }

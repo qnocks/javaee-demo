@@ -9,11 +9,18 @@ import java.util.List;
 
 public class ReferralsRepositorySkipListImpl implements ReferralsRepository {
 
+//    TODO: We have to check patientRegistrationNumber and fullName for correctly.
+    DoctorsRepository doctorsRepository;
+    PatientsRepository patientsRepository;
+
     List<Referral> referrals = new ArrayList<>();
 
     {
-        referrals.add(new Referral("55-882561", "Vladislav", LocalDate.parse("2020-12-31")));
-        referrals.add(new Referral("74-522575", "Alena", LocalDate.parse("2021-01-02")));
+        Referral referral = new Referral("55-882561", "Vladislav", LocalDate.parse("2020-12-31"));
+        Referral referral2 = new Referral("74-522575", "Alena", LocalDate.parse("2021-01-02"));
+
+        referrals.add(referral);
+        referrals.add(referral2);
     }
 
 

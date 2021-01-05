@@ -53,4 +53,14 @@ public class PatientsRepositoryHashTableImpl implements PatientsRepository {
         }
         return null;
     }
+
+    @Override
+    public Patient findByRegistrationNumber(String registrationNumber) {
+        for(Map.Entry<String, Patient> patientEntry : patients.entrySet()) {
+            if (patientEntry.getValue().getRegistrationNumber().equals(registrationNumber)) {
+                return patientEntry.getValue();
+            }
+        }
+        return null;
+    }
 }

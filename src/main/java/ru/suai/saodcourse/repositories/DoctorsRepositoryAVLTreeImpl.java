@@ -39,9 +39,20 @@ public class DoctorsRepositoryAVLTreeImpl implements DoctorsRepository {
         return true;
     }
 
+    @Override
     public Doctor findById(Long id) {
         for(Map.Entry<String, Doctor> doctorEntry : doctors.entrySet()) {
             if (doctorEntry.getValue().getId().equals(id)) {
+                return doctorEntry.getValue();
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public Doctor findByFullName(String fullName) {
+        for(Map.Entry<String, Doctor> doctorEntry : doctors.entrySet()) {
+            if (doctorEntry.getValue().getFullName().equals(fullName)) {
                 return doctorEntry.getValue();
             }
         }

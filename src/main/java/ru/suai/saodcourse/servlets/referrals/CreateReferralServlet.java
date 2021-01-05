@@ -1,6 +1,8 @@
 package ru.suai.saodcourse.servlets.referrals;
 
 import ru.suai.saodcourse.models.Referral;
+import ru.suai.saodcourse.repositories.DoctorsRepository;
+import ru.suai.saodcourse.repositories.PatientsRepository;
 import ru.suai.saodcourse.repositories.ReferralsRepository;
 
 import javax.servlet.ServletException;
@@ -16,10 +18,15 @@ public class CreateReferralServlet extends HttpServlet {
 
     ReferralsRepository referralsRepository;
 
+    PatientsRepository patientsRepository;
+    DoctorsRepository doctorsRepository;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html");
-        referralsRepository = (ReferralsRepository) req.getServletContext().getAttribute("referralsRepos");
+        this.referralsRepository = (ReferralsRepository) req.getServletContext().getAttribute("referralsRepos");
+        this.patientsRepository = (PatientsRepository) req.getServletContext().getAttribute("patientsRepos");
+        this.doctorsRepository = (DoctorsRepository) req.getServletContext().getAttribute("doctorsRepos");
         req.getServletContext().getRequestDispatcher("/jsp/referrals/create.jsp").forward(req, resp);
     }
 
@@ -28,8 +35,15 @@ public class CreateReferralServlet extends HttpServlet {
         String patientRegistrationNumber = req.getParameter("patientRegistrationNumber");
         String doctorFullName = req.getParameter("doctorFullName");
         LocalDate referralDate = LocalDate.parse(req.getParameter("referralDate"));
-        Referral referral = new Referral(patientRegistrationNumber, doctorFullName, referralDate);
-        this.referralsRepository.save(referral);
-        resp.sendRedirect("/referrals");
+
+        if (patientsRepository.findByRegistrationNumber(patientRegistrationNumber) != null
+                && doctorsRepository.findByFullName(doctorFullName) != null) {
+            Referral referral = new Referral(patientRegistrationNumber, doctorFullName, referralDate);
+            this.referralsRepository.save(referral);
+            resp.sendRedirect("/referrals");
+        }
+        else {
+            resp.sendError(400);
+        }
     }
 }

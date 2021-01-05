@@ -25,7 +25,6 @@ public class DeleteReferralServlet extends HttpServlet {
 
     private long getId(HttpServletRequest req) {
         String url = req.getRequestURL().toString();
-        long id = Long.parseLong(url.substring(url.lastIndexOf('/') + 1));
-        return id;
+        return Long.parseLong(url.substring(url.lastIndexOf('/') + 1));
     }
 }

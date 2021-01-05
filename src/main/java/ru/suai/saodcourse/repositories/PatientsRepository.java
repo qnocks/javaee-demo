@@ -10,5 +10,5 @@ public interface PatientsRepository {
     void save(Patient patient);
     boolean delete(Long id);
     Patient findById(Long id);
-
+    Patient findByRegistrationNumber(String registrationNumber);
 }

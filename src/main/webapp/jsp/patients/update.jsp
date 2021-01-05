@@ -11,21 +11,21 @@
     <title>Title</title>
 </head>
 <body>
-    <form method="post" action="${pageContext.request.contextPath}/patients/update/${id}">
+    <form method="post" action="${pageContext.request.contextPath}/patients/update/${patient.id}">
         <label for="registrationNumber"> Registration Number
-            <input type="text" id="registrationNumber" name="registrationNumber" value="${registrationNumber}">
+            <input type="text" id="registrationNumber" name="registrationNumber" value="${patient.registrationNumber}">
         </label>
         <label for="fullName"> Full name
-            <input type="text" id="fullName" name="fullName" value="${fullName}">
+            <input type="text" id="fullName" name="fullName" value="${patient.fullName}">
         </label>
         <label for="birthDate"> BirthDate
-            <input type="text" id="birthDate" name="birthDate" value="${birthDate}">
+            <input type="text" id="birthDate" name="birthDate" value="${patient.birthDate}">
         </label>
         <label for="address"> Address
-            <input type="text" id="address" name="address" value="${address}">
+            <input type="text" id="address" name="address" value="${patient.address}">
         </label>
         <label for="job"> Job
-            <input type="text" id="job" name="job" value="${job}">
+            <input type="text" id="job" name="job" value="${patient.job}">
         </label>
         <input type="submit" value="Add">
     </form>

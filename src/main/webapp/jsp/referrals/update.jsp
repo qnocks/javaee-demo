@@ -11,15 +11,15 @@
     <title>Title</title>
 </head>
 <body>
-    <form method="post" action="${pageContext.request.contextPath}/referrals/update/${id}">
+    <form method="post" action="${pageContext.request.contextPath}/referrals/update/${referral.id}">
         <label for="patientRegistrationNumber"> Registration Number
-            <input type="text" id="patientRegistrationNumber" name="patientRegistrationNumber" value="${patientRegistrationNumber}">
+            <input type="text" id="patientRegistrationNumber" name="patientRegistrationNumber" value="${referral.patientRegistrationNumber}">
         </label>
         <label for="doctorFullName"> Full name
-            <input type="text" id="doctorFullName" name="doctorFullName" value="${doctorFullName}">
+            <input type="text" id="doctorFullName" name="doctorFullName" value="${referral.doctorFullName}">
         </label>
         <label for="referralDate"> BirthDate
-            <input type="text" id="referralDate" name="referralDate" value="${referralDate}">
+            <input type="text" id="referralDate" name="referralDate" value="${referral.referralDate}">
         </label>
         <input type="submit" value="Add">
     </form>
