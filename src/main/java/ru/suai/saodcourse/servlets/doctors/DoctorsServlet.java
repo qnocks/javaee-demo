@@ -30,4 +30,9 @@ public class DoctorsServlet extends HttpServlet {
         RequestDispatcher dispatcher = req.getServletContext().getRequestDispatcher("/jsp/doctors/list.jsp");
         dispatcher.forward(req, resp);
     }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getRequestDispatcher("/jsp/doctors/list.jsp").forward(req, resp);
+    }
 }

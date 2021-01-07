@@ -13,31 +13,59 @@
 </head>
 <body>
     <a href="${pageContext.request.contextPath}/">Home</a>
-    <table>
-        <tr>
-            <th>Id</th>
-            <th>RegistrationNumber</th>
-            <th>FullName</th>
-            <th>BirthDate</th>
-            <th>Address</th>
-            <th>Job</th>
-            <th></th>
-            <th></th>
-        </tr>
-        <c:forEach items="${patients}" var="patient">
-            <tr>
-                <td>${patient.id}</td>
-                <td>${patient.registrationNumber}</td>
-                <td>${patient.fullName}</td>
-                <td>${patient.birthDate}</td>
-                <td>${patient.address}</td>
-                <td>${patient.job}</td>
-                <td><a href="${pageContext.servletContext.contextPath}/patients/update/${patient.id}">Edit</a></td>
-                <td><a href="${pageContext.servletContext.contextPath}/patients/delete/${patient.id}">Delete</a></td>
-            </tr>
-        </c:forEach>
-    </table>
-    <a href="${pageContext.request.contextPath}/patients/create">Add new patient</a>
-    <a href="${pageContext.request.contextPath}/patients/find">Find the patient</a>
+
+    <c:choose>
+        <c:when test="${patient != null}">
+            <table>
+                <tr>
+                    <th>Id</th>
+                    <th>RegistrationNumber</th>
+                    <th>FullName</th>
+                    <th>BirthDate</th>
+                    <th>Address</th>
+                    <th>Job</th>
+                    <th>Doctor full name</th>
+                </tr>
+                <tr>
+                    <td>${patient.id}</td>
+                    <td>${patient.registrationNumber}</td>
+                    <td>${patient.fullName}</td>
+                    <td>${patient.birthDate}</td>
+                    <td>${patient.address}</td>
+                    <td>${patient.job}</td>
+                    <td>${doctorFullName}</td>
+                </tr>
+            </table>
+        </c:when>
+        <c:otherwise>
+            <table>
+                <tr>
+                    <th>Id</th>
+                    <th>RegistrationNumber</th>
+                    <th>FullName</th>
+                    <th>BirthDate</th>
+                    <th>Address</th>
+                    <th>Job</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <c:forEach items="${patients}" var="patient">
+                    <tr>
+                        <td>${patient.id}</td>
+                        <td>${patient.registrationNumber}</td>
+                        <td>${patient.fullName}</td>
+                        <td>${patient.birthDate}</td>
+                        <td>${patient.address}</td>
+                        <td>${patient.job}</td>
+                        <td><a href="${pageContext.servletContext.contextPath}/patients/update/${patient.id}">Edit</a></td>
+                        <td><a href="${pageContext.servletContext.contextPath}/patients/delete/${patient.id}">Delete</a></td>
+                    </tr>
+                </c:forEach>
+            </table>
+            <a href="${pageContext.request.contextPath}/patients/create">Add new patient</a>
+            <a href="${pageContext.request.contextPath}/patients/find">Find the patients</a>
+        </c:otherwise>
+    </c:choose>
+
 </body>
 </html>

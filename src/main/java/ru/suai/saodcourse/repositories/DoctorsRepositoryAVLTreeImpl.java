@@ -59,4 +59,15 @@ public class DoctorsRepositoryAVLTreeImpl implements DoctorsRepository {
         return null;
     }
 
+    @Override
+    public List<Doctor> findBySpecialty(String specialty) {
+        List<Doctor> foundDoctors = new LinkedList<>();
+        for(Map.Entry<String, Doctor> doctorEntry : doctors.entrySet()) {
+            if (doctorEntry.getValue().getSpecialty().equals(specialty)) {
+                foundDoctors.add(doctorEntry.getValue());
+            }
+        }
+        return foundDoctors;
+    }
+
 }

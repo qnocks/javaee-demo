@@ -5,6 +5,7 @@ import ru.suai.saodcourse.models.Referral;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class ReferralsRepositorySkipListImpl implements ReferralsRepository {
@@ -50,5 +51,26 @@ public class ReferralsRepositorySkipListImpl implements ReferralsRepository {
             }
         }
         return null;
+    }
+
+    @Override
+    public Referral findByPatientRegistrationNumber(String patientRegistrationNumber) {
+        for(var referral : referrals) {
+            if (referral.getPatientRegistrationNumber().equals(patientRegistrationNumber)) {
+                return referral;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public List<Referral> findByDoctorFullName(String doctorFullName) {
+        List<Referral> referrals = new LinkedList<>();
+        for(var referral : referrals) {
+            if (referral.getDoctorFullName().equals(doctorFullName)) {
+                referrals.add(referral);
+            }
+        }
+        return referrals;
     }
 }

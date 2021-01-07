@@ -9,4 +9,6 @@ public interface ReferralsRepository {
     void save(Referral referral);
     boolean delete(Long id);
     Referral findById(Long id);
+    Referral findByPatientRegistrationNumber(String patientRegistrationNumber);
+    List<Referral> findByDoctorFullName(String doctorFullName);
 }

@@ -13,4 +13,5 @@ public interface DoctorsRepository {
     boolean delete(Long id);
     Doctor findById(Long id);
     Doctor findByFullName(String fullName);
+    List<Doctor> findBySpecialty(String specialty);
 }

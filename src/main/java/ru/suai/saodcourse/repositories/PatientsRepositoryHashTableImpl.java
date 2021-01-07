@@ -63,4 +63,15 @@ public class PatientsRepositoryHashTableImpl implements PatientsRepository {
         }
         return null;
     }
+
+    @Override
+    public List<Patient> findByFullName(String fullName) {
+        List<Patient> findedPatients = new LinkedList<>();
+        for(Map.Entry<String, Patient> patientEntry : patients.entrySet()) {
+            if (patientEntry.getValue().getFullName().equals(fullName)) {
+                findedPatients.add(patientEntry.getValue());
+            }
+        }
+        return findedPatients;
+    }
 }
