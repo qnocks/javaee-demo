@@ -5,6 +5,7 @@ import ru.suai.saodcourse.models.Referral;
 import ru.suai.saodcourse.repositories.PatientsRepository;
 import ru.suai.saodcourse.repositories.ReferralsRepository;
 
+import javax.inject.Inject;
 import javax.servlet.GenericServlet;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,14 +18,13 @@ import java.util.List;
 @WebServlet("/patients/find")
 public class FindPatientServlet extends HttpServlet {
 
+    @Inject
     PatientsRepository patientsRepository;
-
+    @Inject
     ReferralsRepository referralsRepository;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        this.patientsRepository = (PatientsRepository) req.getServletContext().getAttribute("patientsRepos");
-        this.referralsRepository = (ReferralsRepository) req.getServletContext().getAttribute("referralsRepos");
         req.getRequestDispatcher("/jsp/patients/find.jsp").forward(req, resp);
     }
 
@@ -32,7 +32,7 @@ public class FindPatientServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String registrationNumber = req.getParameter("registrationNumber");
         String fullName = req.getParameter("fullName");
-        if (registrationNumber.isEmpty() && !fullName.isEmpty()) {
+        if (!fullName.isEmpty() && registrationNumber.isEmpty()) {
             List<Patient> patients = this.patientsRepository.findByFullName(fullName);
             req.setAttribute("patients", patients);
             req.getRequestDispatcher("/patients").forward(req, resp);

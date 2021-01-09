@@ -3,18 +3,16 @@ package ru.suai.saodcourse.repositories;
 import ru.suai.saodcourse.models.Patient;
 import ru.suai.saodcourse.models.Referral;
 
+import javax.enterprise.context.ApplicationScoped;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+@ApplicationScoped
 public class ReferralsRepositorySkipListImpl implements ReferralsRepository {
 
-//    TODO: We have to check patientRegistrationNumber and fullName for correctly.
-    DoctorsRepository doctorsRepository;
-    PatientsRepository patientsRepository;
-
-    List<Referral> referrals = new ArrayList<>();
+    private final List<Referral> referrals = new ArrayList<>();
 
     {
         Referral referral = new Referral("55-882561", "Vladislav", LocalDate.parse("2020-12-31"));
@@ -65,12 +63,13 @@ public class ReferralsRepositorySkipListImpl implements ReferralsRepository {
 
     @Override
     public List<Referral> findByDoctorFullName(String doctorFullName) {
-        List<Referral> referrals = new LinkedList<>();
+        List<Referral> referralsToReturn = new LinkedList<>();
         for(var referral : referrals) {
             if (referral.getDoctorFullName().equals(doctorFullName)) {
-                referrals.add(referral);
+                referralsToReturn.add(referral);
             }
         }
         return referrals;
     }
 }
+

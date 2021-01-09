@@ -3,6 +3,7 @@ package ru.suai.saodcourse.servlets.patients;
 import ru.suai.saodcourse.models.Patient;
 import ru.suai.saodcourse.repositories.PatientsRepository;
 
+import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,12 +16,12 @@ import java.time.LocalDate;
 @WebServlet("/patients/create")
 public class CreatePatientServlet extends HttpServlet {
 
+    @Inject
     PatientsRepository patientsRepository;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html");
-        patientsRepository = (PatientsRepository) req.getServletContext().getAttribute("patientsRepos");
         RequestDispatcher dispatcher = req.getServletContext().getRequestDispatcher("/jsp/patients/create.jsp");
         req.getRequestDispatcher("/doctors/create");
         dispatcher.forward(req, resp);

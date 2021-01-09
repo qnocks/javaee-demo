@@ -2,6 +2,7 @@ package ru.suai.saodcourse.repositories;
 
 import ru.suai.saodcourse.models.Patient;
 
+import javax.enterprise.context.ApplicationScoped;
 import java.time.LocalDate;
 import java.util.HashMap;
 
@@ -9,9 +10,10 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+@ApplicationScoped
 public class PatientsRepositoryHashTableImpl implements PatientsRepository {
 
-    Map<String, Patient> patients = new HashMap<>();
+    private final Map<String, Patient> patients = new HashMap<>();
 
     {
         var patient = new Patient("55-882561", "Ivan Sidikov",

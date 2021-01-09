@@ -3,6 +3,7 @@ package ru.suai.saodcourse.servlets.patients;
 import ru.suai.saodcourse.repositories.PatientsRepository;
 import ru.suai.saodcourse.repositories.PatientsRepositoryHashTableImpl;
 
+import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -15,13 +16,13 @@ import java.io.IOException;
 @WebServlet("/patients")
 public class PatientsServlet extends HttpServlet {
 
+    @Inject
     PatientsRepository patientsRepository;
 
-    @Override
-    public void init(ServletConfig config) throws ServletException {
-        this.patientsRepository = new PatientsRepositoryHashTableImpl();
-        config.getServletContext().setAttribute("patientsRepos", this.patientsRepository);
-    }
+//    @Override
+//    public void init(ServletConfig config) throws ServletException {
+//        config.getServletContext().setAttribute("patientsRepos", this.patientsRepository);
+//    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

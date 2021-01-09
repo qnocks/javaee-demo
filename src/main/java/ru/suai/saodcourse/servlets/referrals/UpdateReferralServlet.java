@@ -5,6 +5,7 @@ import ru.suai.saodcourse.repositories.DoctorsRepository;
 import ru.suai.saodcourse.repositories.PatientsRepository;
 import ru.suai.saodcourse.repositories.ReferralsRepository;
 
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,18 +17,16 @@ import java.time.LocalDate;
 @WebServlet("/referrals/update/*")
 public class UpdateReferralServlet extends HttpServlet {
 
+    @Inject
     ReferralsRepository referralsRepository;
-
+    @Inject
     PatientsRepository patientsRepository;
+    @Inject
     DoctorsRepository doctorsRepository;
 
     Referral referralToUpdate;
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        this.referralsRepository = (ReferralsRepository) req.getServletContext().getAttribute("referralsRepos");
-        this.patientsRepository = (PatientsRepository) req.getServletContext().getAttribute("patientsRepos");
-        this.doctorsRepository = (DoctorsRepository) req.getServletContext().getAttribute("doctorsRepos");
 
         resp.setContentType("text/html");
         referralToUpdate = this.referralsRepository.findById(getId(req));

@@ -3,6 +3,7 @@ package ru.suai.saodcourse.servlets.doctors;
 import ru.suai.saodcourse.models.Doctor;
 import ru.suai.saodcourse.repositories.DoctorsRepository;
 
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,11 +14,11 @@ import java.io.IOException;
 @WebServlet("/doctors/update/*")
 public class UpdateDoctorServlet extends HttpServlet {
 
+    @Inject
     DoctorsRepository doctorsRepository;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        this.doctorsRepository = (DoctorsRepository) req.getServletContext().getAttribute("doctorsRepos");
         resp.setContentType("text/html");
         req.setAttribute("doctor", doctorsRepository.findById(getId(req)));
         req.getRequestDispatcher("/jsp/doctors/update.jsp").forward(req, resp);

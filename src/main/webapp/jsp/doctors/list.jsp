@@ -40,12 +40,12 @@
                     <th>Patient full name</th>
                     <th>Patient registration number</th>
                 </tr>
-                <tr>
-                    <c:forEach items="${boundedPatients}" var="boundedPatient">
+                <c:forEach items="${boundedPatients}" var="boundedPatient">
+                    <tr>
                         <td>${boundedPatient.fullName}</td>
-                        <td>${boundedPatient.registrationNumeber}</td>
-                    </c:forEach>
-                </tr>
+                        <td>${boundedPatient.registrationNumber}</td>
+                   </tr>
+                </c:forEach>
             </table>
         </c:when>
         <c:otherwise>

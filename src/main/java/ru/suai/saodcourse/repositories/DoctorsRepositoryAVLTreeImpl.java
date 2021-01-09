@@ -2,14 +2,16 @@ package ru.suai.saodcourse.repositories;
 
 import ru.suai.saodcourse.models.Doctor;
 
+import javax.enterprise.context.ApplicationScoped;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+@ApplicationScoped
 public class DoctorsRepositoryAVLTreeImpl implements DoctorsRepository {
 
-    TreeMap<String, Doctor> doctors = new TreeMap<>();
+    private final TreeMap<String, Doctor> doctors = new TreeMap<>();
 
     {
         Doctor doctor = new Doctor("Vladislav", "Terapevt", 5, "9:00 - 14:00");

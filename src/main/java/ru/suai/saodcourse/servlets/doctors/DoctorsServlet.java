@@ -3,6 +3,7 @@ package ru.suai.saodcourse.servlets.doctors;
 import ru.suai.saodcourse.repositories.DoctorsRepository;
 import ru.suai.saodcourse.repositories.DoctorsRepositoryAVLTreeImpl;
 
+import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -15,13 +16,14 @@ import java.io.IOException;
 @WebServlet("/doctors")
 public class DoctorsServlet extends HttpServlet {
 
+    @Inject
     DoctorsRepository doctorsRepository;
 
-    @Override
-    public void init(ServletConfig config) {
-        this.doctorsRepository = new DoctorsRepositoryAVLTreeImpl();
-        config.getServletContext().setAttribute("doctorsRepos", this.doctorsRepository);
-    }
+//    This is no longer needed
+//    @Override
+//    public void init(ServletConfig config) {
+//        config.getServletContext().setAttribute("doctorsRepos", this.doctorsRepository);
+//    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

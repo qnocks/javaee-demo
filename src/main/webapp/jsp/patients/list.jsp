@@ -25,6 +25,8 @@
                     <th>Address</th>
                     <th>Job</th>
                     <th>Doctor full name</th>
+                    <th></th>
+                    <th></th>
                 </tr>
                 <tr>
                     <td>${patient.id}</td>
@@ -34,6 +36,8 @@
                     <td>${patient.address}</td>
                     <td>${patient.job}</td>
                     <td>${doctorFullName}</td>
+                    <td><a href="${pageContext.servletContext.contextPath}/patients/update/${patient.id}">Edit</a></td>
+                    <td><a href="${pageContext.servletContext.contextPath}/patients/delete/${patient.id}">Delete</a></td>
                 </tr>
             </table>
         </c:when>

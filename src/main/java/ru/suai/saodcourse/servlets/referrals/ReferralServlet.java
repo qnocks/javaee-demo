@@ -3,6 +3,7 @@ package ru.suai.saodcourse.servlets.referrals;
 import ru.suai.saodcourse.repositories.ReferralsRepository;
 import ru.suai.saodcourse.repositories.ReferralsRepositorySkipListImpl;
 
+import javax.inject.Inject;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,13 +16,14 @@ import java.io.IOException;
 @WebServlet("/referrals")
 public class ReferralServlet extends HttpServlet {
 
+    @Inject
     ReferralsRepository referralsRepository;
 
-    @Override
-    public void init(ServletConfig config) throws ServletException {
-        this.referralsRepository = new ReferralsRepositorySkipListImpl();
-        config.getServletContext().setAttribute("referralsRepos", this.referralsRepository);
-    }
+//    @Override
+//    public void init(ServletConfig config) throws ServletException {
+//        this.referralsRepository = new ReferralsRepositorySkipListImpl();
+//        config.getServletContext().setAttribute("referralsRepos", this.referralsRepository);
+//    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

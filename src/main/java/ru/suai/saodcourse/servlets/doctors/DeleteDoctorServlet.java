@@ -2,6 +2,7 @@ package ru.suai.saodcourse.servlets.doctors;
 
 import ru.suai.saodcourse.repositories.DoctorsRepository;
 
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,12 +13,12 @@ import java.io.IOException;
 @WebServlet("/doctors/delete/*")
 public class DeleteDoctorServlet extends HttpServlet {
 
+    @Inject
     DoctorsRepository doctorsRepository;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html");
-        doctorsRepository = (DoctorsRepository) req.getServletContext().getAttribute("doctorsRepos");
         doctorsRepository.delete(getId(req));
         resp.sendRedirect("/doctors");
     }

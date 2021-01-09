@@ -7,6 +7,7 @@ import ru.suai.saodcourse.repositories.DoctorsRepository;
 import ru.suai.saodcourse.repositories.PatientsRepository;
 import ru.suai.saodcourse.repositories.ReferralsRepository;
 
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,17 +20,16 @@ import java.util.List;
 @WebServlet("/doctors/find")
 public class FindDoctorServlet extends HttpServlet {
 
+    @Inject
     DoctorsRepository doctorsRepository;
-
+    @Inject
     ReferralsRepository referralsRepository;
+    @Inject
     PatientsRepository patientsRepository;
 
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        this.doctorsRepository = (DoctorsRepository) req.getServletContext().getAttribute("doctorsRepos");
-        this.patientsRepository = (PatientsRepository) req.getServletContext().getAttribute("patientsRepos");
-        this.referralsRepository = (ReferralsRepository) req.getServletContext().getAttribute("referralsRepos");
         req.getRequestDispatcher("/jsp/doctors/find.jsp").forward(req, resp);
     }
 
